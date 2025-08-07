@@ -6,6 +6,9 @@ import java.util.Optional;
 
 import javax.management.relation.RelationNotFoundException;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 /**
  * Service interface for Sales operations.
  */
@@ -16,7 +19,7 @@ public interface SalesService {
      *
      * @return a list of all sales
      */
-    List<Sales> getAllSales();
+     Page<Sales> getAllSales(Pageable pageable);
 
     /**
      * Get a sales by its ID.

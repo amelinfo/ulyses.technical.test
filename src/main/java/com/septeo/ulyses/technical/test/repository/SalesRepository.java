@@ -1,6 +1,10 @@
 package com.septeo.ulyses.technical.test.repository;
 
 import com.septeo.ulyses.technical.test.entity.Sales;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -10,13 +14,13 @@ import java.util.Optional;
  * Repository interface for Sales entity.
  */
 @Repository
-public interface SalesRepository {
+public interface SalesRepository extends JpaRepository<Sales, Long> {
     /**
      * Find all sales.
      *
      * @return a list of all sales
      */
-    List<Sales> findAll();
+     Page<Sales> findAll(Pageable pageable);
 
     /**
      * Find a sale by its ID.
