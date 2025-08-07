@@ -12,16 +12,16 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableMethodSecurity  //Enables method-level security annotations
 public class SecurityConfig {
 
-    // method for global rules
+    // Define a SecurityFilterChain for global rules
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable())  // Disables CSRF for APIs
+            .csrf(csrf -> csrf.disable())  // Disable CSRF for APIs
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers(HttpMethod.POST, "/api/brands/**").hasRole("ADMIN")  // Requires ADMIN role
+                .requestMatchers(HttpMethod.POST, "/api/brands/**").hasRole("ADMIN")  // Requires ROLE_ADMIN
                 .anyRequest().permitAll()
             )
-            .httpBasic(Customizer.withDefaults());  // Enables HTTP Basic Auth
+            .httpBasic(Customizer.withDefaults());  // Enable HTTP Basic Auth
         return http.build();
     }
 
