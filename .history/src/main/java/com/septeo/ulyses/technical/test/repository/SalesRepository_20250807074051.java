@@ -43,5 +43,5 @@ public interface SalesRepository {
      * @param vehicleId the id of the vehicle
      * @return a list of sales if found, or empty list if not found
      */
-	List<Sales> findByVehicleId(Long vehicleId);
+	List<Sales> findByVehiculeId(Long vehicleId);
 }

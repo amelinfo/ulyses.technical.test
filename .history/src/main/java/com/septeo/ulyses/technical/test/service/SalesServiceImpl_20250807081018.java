@@ -47,8 +47,13 @@ public class SalesServiceImpl implements SalesService {
     }
 
     @Override
-    public List<Sales> getSalesByVehicleId(Long vehicleId) {
+    public List<Sales> getSalesByVehicleId(Long vehicleId) throws RelationNotFoundException {
         List<Sales> sales = salesRepository.findByVehicleId(vehicleId);
+        if (sales == null || sales.isEmpty()) {
+            throw new RelationNotFoundException(
+                "No sales found for vehicle with ID: " + vehicleId
+            );
+        }
         return sales;
     }
 

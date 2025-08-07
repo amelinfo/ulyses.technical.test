@@ -53,8 +53,11 @@ public class SalesController {
      * @throws RelationNotFoundException 
      */
     @GetMapping("/vehicles/{vehicleId}")
-    public ResponseEntity<List<Sales>> getSalesByVehicleId(@PathVariable Long vehicleId) {
+    public ResponseEntity<List<Sales>> getSalesByVehicleId(@PathVariable Long vehicleId) throws RelationNotFoundException {
         List<Sales> sales = salesService.getSalesByVehicleId(vehicleId);
+        if (sales.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
         return ResponseEntity.ok(sales);
     }
 }

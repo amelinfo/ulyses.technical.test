@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import javax.management.relation.RelationNotFoundException;
-
 @RestController
 @RequestMapping("/api/sales")
 public class SalesController {
@@ -32,29 +30,6 @@ public class SalesController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    /**
-     * Get all sales for a specific brand
-     * @param brandId The ID of the brand to filter sales
-     * @return List of sales for the given brand
-     */
-    @GetMapping("/brands/{brandId}")
-    public ResponseEntity<List<Sales>> getSalesByBrandId(@PathVariable Long brandId) {
-        List<Sales> sales = salesService.getSalesByBrandId(brandId);
-        if (sales.isEmpty()) {
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok(sales);
-    }
+    // TODO: implement here your endpoints
 
-    /**
-     * Get all sales for a specific vehicle
-     * @param vehicleId The ID of the vehicle to filter sales
-     * @return List of sales for the given vehicle
-     * @throws RelationNotFoundException 
-     */
-    @GetMapping("/vehicles/{vehicleId}")
-    public ResponseEntity<List<Sales>> getSalesByVehicleId(@PathVariable Long vehicleId) {
-        List<Sales> sales = salesService.getSalesByVehicleId(vehicleId);
-        return ResponseEntity.ok(sales);
-    }
 }

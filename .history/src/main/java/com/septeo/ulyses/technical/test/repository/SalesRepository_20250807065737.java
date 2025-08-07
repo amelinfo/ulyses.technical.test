@@ -36,12 +36,4 @@ public interface SalesRepository {
      * @return a list of sales if found, or empty list if not found
      */
     List<Sales> findByBrandId(Long brandId);
-
-    /**
-     * Find a sale by its vehicleId
-     * 
-     * @param vehicleId the id of the vehicle
-     * @return a list of sales if found, or empty list if not found
-     */
-	List<Sales> findByVehicleId(Long vehicleId);
 }

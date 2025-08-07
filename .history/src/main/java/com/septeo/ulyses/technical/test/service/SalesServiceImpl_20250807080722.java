@@ -9,8 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-import javax.management.relation.RelationNotFoundException;
-
 /**
  * Implementation of the SalesService interface.
  * This class provides the implementation for all sales-related operations.
@@ -49,6 +47,11 @@ public class SalesServiceImpl implements SalesService {
     @Override
     public List<Sales> getSalesByVehicleId(Long vehicleId) {
         List<Sales> sales = salesRepository.findByVehicleId(vehicleId);
+        if (sales == null || sales.isEmpty()) {
+            throw new ResourceNotFoundException(
+                "No sales found for vehicle with ID: " + vehicleId
+            );
+        }
         return sales;
     }
 

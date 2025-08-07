@@ -45,6 +45,6 @@ public interface SalesService {
      * @return a list of sales for the given vehicle (empty if none found)
      * @throws RelationNotFoundException 
      */
-    List<Sales> getSalesByVehicleId(Long vehicleId);
+    List<Sales> getSalesByVehicleId(Long vehicleId) throws RelationNotFoundException;
 
 }

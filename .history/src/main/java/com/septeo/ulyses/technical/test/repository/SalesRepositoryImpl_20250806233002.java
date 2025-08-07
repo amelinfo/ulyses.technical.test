@@ -42,20 +42,4 @@ public class SalesRepositoryImpl implements SalesRepository {
             return Optional.empty();
         }
     }
-
-    @Override
-    public List<Sales> findByBrandId(Long brandId) {
-        String stringQuery = "SELECT s FROM Sales s WHERE s.brandId = :brandId";
-        Query query = entityManager.createQuery(stringQuery);
-        query.setParameter("brandId", brandId);
-        return query.getResultList();
-    }
-
-    @Override
-    public List<Sales> findByVehicleId(Long vehicleId) {
-        String jpql = "SELECT s FROM Sales s WHERE s.vehicleId = :vehicleId";
-        return entityManager.createQuery(jpql, Sales.class)
-            .setParameter("vehicleId", vehicleId)
-            .getResultList();
-    }
 }

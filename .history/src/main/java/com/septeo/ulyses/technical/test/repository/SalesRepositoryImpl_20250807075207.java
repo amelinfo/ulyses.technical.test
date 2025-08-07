@@ -52,7 +52,7 @@ public class SalesRepositoryImpl implements SalesRepository {
     }
 
     @Override
-    public List<Sales> findByVehicleId(Long vehicleId) {
+    public List<Sales> findByVehiculeId(Long vehicleId) {
         String jpql = "SELECT s FROM Sales s WHERE s.vehicleId = :vehicleId";
         return entityManager.createQuery(jpql, Sales.class)
             .setParameter("vehicleId", vehicleId)
