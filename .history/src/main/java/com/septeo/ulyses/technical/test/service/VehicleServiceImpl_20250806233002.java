@@ -1,5 +1,6 @@
 package com.septeo.ulyses.technical.test.service;
 
+import com.septeo.ulyses.technical.test.entity.Brand;
 import com.septeo.ulyses.technical.test.entity.Vehicle;
 import com.septeo.ulyses.technical.test.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;

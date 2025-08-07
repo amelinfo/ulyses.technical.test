@@ -1,5 +1,8 @@
 package com.septeo.ulyses.technical.test.entity;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -17,7 +20,7 @@ public class Vehicle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonIgnoreProperties("vehicles")
+    //@JsonIgnoreProperties("vehicles")
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "brand_id", nullable = false)
     private Brand brand;
@@ -29,4 +32,8 @@ public class Vehicle {
     private String year;
 
     private String color;
+
+    //@JsonIgnore  // Prevent sales from being serialized with vehicle
+    @OneToMany(mappedBy = "vehicle")
+    private List<Sales> sales;
 }

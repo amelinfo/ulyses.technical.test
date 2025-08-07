@@ -1,5 +1,6 @@
 package com.septeo.ulyses.technical.test.repository;
 
+import com.septeo.ulyses.technical.test.entity.Brand;
 import com.septeo.ulyses.technical.test.entity.Vehicle;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;

@@ -1,6 +1,7 @@
 package com.septeo.ulyses.technical.test.repository;
 
 import com.septeo.ulyses.technical.test.entity.Brand;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

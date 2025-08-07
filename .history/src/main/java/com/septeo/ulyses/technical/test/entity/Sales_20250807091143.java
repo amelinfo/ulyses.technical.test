@@ -6,27 +6,34 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 @Entity
-@Table(name = "vehicles")
+@Table(name = "sales")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Vehicle {
+public class Sales {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    // we can Remove @ManyToOne Brand - redundant since we can get it via vehicle.getBrand()
 
     @JsonIgnoreProperties("vehicles")
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "brand_id", nullable = false)
     private Brand brand;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "vehicle_id", nullable = false)
+    private Vehicle vehicle;
+
     @Column(nullable = false)
-    private String model;
+    private LocalDate saleDate;
 
-    @Column(name = "model_year")
-    private String year;
-
-    private String color;
+    @Column(nullable = false, precision = 10, scale = 2)
+    private BigDecimal price;
 }

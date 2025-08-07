@@ -1,8 +1,13 @@
 package com.septeo.ulyses.technical.test.repository;
 
+import com.septeo.ulyses.technical.test.entity.Brand;
 import com.septeo.ulyses.technical.test.entity.Sales;
+import com.septeo.ulyses.technical.test.entity.Vehicle;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,7 +15,7 @@ import java.util.Optional;
  * Repository interface for Sales entity.
  */
 @Repository
-public interface SalesRepository {
+public interface SalesRepository  extends JpaRepository<Sales, Long> {
     /**
      * Find all sales.
      *
