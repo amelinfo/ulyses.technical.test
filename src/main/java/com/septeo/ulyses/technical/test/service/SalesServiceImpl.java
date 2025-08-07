@@ -36,4 +36,9 @@ public class SalesServiceImpl implements SalesService {
         return salesRepository.findById(id);
     }
 
+    @Override
+    public List<Sales> getSalesByBrandId(Long brandId) {
+        return salesRepository.findByBrandId(brandId);
+    }
+
 }

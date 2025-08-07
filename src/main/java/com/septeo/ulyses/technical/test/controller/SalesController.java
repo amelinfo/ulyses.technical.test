@@ -30,6 +30,18 @@ public class SalesController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // TODO: implement here your endpoints
+    /**
+     * Get all sales for a specific brand
+     * @param brandId The ID of the brand to filter sales
+     * @return List of sales for the given brand
+     */
+    @GetMapping("/brands/{brandId}")
+    public ResponseEntity<List<Sales>> getSalesByBrandId(@PathVariable Long brandId) {
+        List<Sales> sales = salesService.getSalesByBrandId(brandId);
+        if (sales.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(sales);
+    }
 
 }
