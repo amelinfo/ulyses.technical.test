@@ -1,6 +1,8 @@
 package com.septeo.ulyses.technical.test.service;
 
 import com.septeo.ulyses.technical.test.entity.Sales;
+
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,8 +44,15 @@ public interface SalesService {
      * 
      * @param vehicleId the ID of the vehicle to filter sales
      * @return a list of sales for the given vehicle (empty if none found)
-     * @throws RelationNotFoundException 
      */
     List<Sales> getSalesByVehicleId(Long vehicleId);
 
+    /**
+     * Get best-selling vehicles
+     * 
+     * @param startDate
+     * @param endDate
+     * @return List of vehicles
+     */
+    List<Object[]> getTopSellingVehicles(LocalDate startDate, LocalDate endDate);
 }
