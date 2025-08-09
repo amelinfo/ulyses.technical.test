@@ -1,6 +1,5 @@
 package com.septeo.ulyses.technical.test.service;
 
-import com.septeo.ulyses.technical.test.config.QuickSort;
 import com.septeo.ulyses.technical.test.entity.Sales;
 import com.septeo.ulyses.technical.test.entity.Vehicle;
 import com.septeo.ulyses.technical.test.repository.SalesRepository;
@@ -59,6 +58,13 @@ public class SalesServiceImpl implements SalesService {
         return sales;
     }
 
+    /**
+     * QuickSort has an average and best-case time complexity of O(n log n) and a worst-case of O(n²) (when poorly partitioned). 
+     * It is in-place and faster than many other sorting algorithms for large datasets.
+     * 
+     * @param entries
+     * @return List
+     */
     private List<Map.Entry<Vehicle, Integer>> quickSort(List<Map.Entry<Vehicle, Integer>> entries) {
         if (entries.size() <= 1) {
             return entries;
