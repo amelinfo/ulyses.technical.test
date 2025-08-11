@@ -1,2 +1,10 @@
 [Request] 2025-08-11 07:03:36.440 | GET /api/sales/vehicles/bestSelling
 [Response] 2025-08-11 07:03:37.488 | GET /api/sales/vehicles/bestSelling | Status: 200 | Time: 1048ms
+[Request] 2025-08-11 14:19:36.986 | GET /api/brands/1
+[Response] 2025-08-11 14:19:37.128 | GET /api/brands/1 | Status: 200 | Time: 142ms
+[Request] 2025-08-11 15:41:56.028 | GET /api/brands/1
+[Response] 2025-08-11 15:41:56.576 | GET /api/brands/1 | Status: 200 | Time: 548ms
+[Request] 2025-08-11 15:42:30.431 | GET /api/brands/1
+[Response] 2025-08-11 15:42:30.436 | GET /api/brands/1 | Status: 200 | Time: 5ms
+[Request] 2025-08-11 15:57:39.051 | GET /api/brands/1
+[Response] 2025-08-11 15:57:39.607 | GET /api/brands/1 | Status: 200 | Time: 556ms

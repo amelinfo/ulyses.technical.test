@@ -1,5 +1,6 @@
 package com.septeo.ulyses.technical.test.controller;
 
+import com.septeo.ulyses.technical.test.cache.BrandCacheService;
 import com.septeo.ulyses.technical.test.entity.Brand;
 import com.septeo.ulyses.technical.test.service.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,9 @@ public class BrandController {
     @Autowired
     private BrandService brandService;
 
+    @Autowired
+    private BrandCacheService brandCacheService;
+
     @GetMapping
     public ResponseEntity<List<Brand>> getAllBrands() {
         return ResponseEntity.ok(brandService.getAllBrands());
@@ -27,9 +31,11 @@ public class BrandController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Brand> getBrandById(@PathVariable Long id) {
-        return brandService.getBrandById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+        Brand brand = brandCacheService.getOrLoad(String.valueOf(id), () -> brandService.getBrandById(id).orElse(null));
+        if (brand == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(brand);
     }
 
     @PostMapping
