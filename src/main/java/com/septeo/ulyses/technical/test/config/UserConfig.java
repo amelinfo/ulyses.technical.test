@@ -300,4 +300,14 @@ public class UserConfig {
   {"salesCount":49,"vehicle":{"id":2,"brand":{"id":1,"name":"Renault","description":"French automobile manufacturer"},"model":"Megane","year":"2021","color":"Blue"}},
   {"salesCount":49,"vehicle":{"id":6,"brand":{"id":2,"name":"Opel","description":"German automobile manufacturer"},"model":"Mokka","year":"2023","color":"Green"}}
   ]
+
+
+  curl http://localhost:8080/api/sales/vehicles/bestSelling
+[{"salesCount":49,"vehicle":{"id":9,"brand":{"id":3,"name":"Volkswagen","description":"German automobile manufacturer"},"model":"Tiguan","year":"2023","color":"Black"}},{"salesCount":49,"vehicle":{"id":4,"brand":{"id":2,"name":"Opel","description":"German automobile manufacturer"},"model":"Corsa","year":"2022","color":"Black"}},{"salesCount":49,"vehicle":{"id":2,"brand":{"id":1,"name":"Renault","description":"French automobile manufacturer"},"model":"Megane","year":"2021","color":"Blue"}},{"salesCount":49,"vehicle":{"id":8,"brand":{"id":3,"name":"Volkswagen","description":"German automobile manufacturer"},"model":"Polo","year":"2021","color":"Red"}},{"salesCount":49,"vehicle":{"id":7,"brand":{"id":3,"name":"Volkswagen","description":"German automobile manufacturer"},"model":"Golf","year":"2022","color":"Blue"}}]
+
+logs/api-logs.log :
+
+[Request] 2025-08-11 07:03:36.440 | GET /api/sales/vehicles/bestSelling
+[Response] 2025-08-11 07:03:37.488 | GET /api/sales/vehicles/bestSelling | Status: 200 | Time: 1048ms
+
   */
