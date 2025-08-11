@@ -1,0 +1,2 @@
+[Request] 2025-08-11 07:03:36.440 | GET /api/sales/vehicles/bestSelling
+[Response] 2025-08-11 07:03:37.488 | GET /api/sales/vehicles/bestSelling | Status: 200 | Time: 1048ms

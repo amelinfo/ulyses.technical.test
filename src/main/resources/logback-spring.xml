@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- Define log file locations -->
+    <property name="LOG_PATH" value="./logs"/>
+    <property name="LOG_FILE" value="api-logs"/>
+    
+    <!-- Configure file appender -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- Main log file location -->
+        <file>${LOG_PATH}/${LOG_FILE}.log</file>
+        
+        <!-- Simple log message format (just the message) -->
+        <encoder>
+            <pattern>%msg%n</pattern>
+        </encoder>
+        
+        <!-- Rollover policy -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- New file each day, with index for multiple per day -->
+            <fileNamePattern>${LOG_PATH}/${LOG_FILE}-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- Keep logs for 30 days -->
+            <maxHistory>30</maxHistory>
+            <!-- Rotate when file reaches 10MB -->
+            <timeBasedFileNamingAndTriggeringPolicy 
+                class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <!-- Configure our specific logger -->
+    <logger name="API_LOGGER" level="INFO" additivity="false">
+        <appender-ref ref="FILE"/> <!-- Write to our file appender -->
+    </logger>
+</configuration>
